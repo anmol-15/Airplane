@@ -1,0 +1,106 @@
+body{
+    background-image: url("https://images.pexels.com/photos/946841/pexels-photo-946841.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-size: cover;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: hidden;
+}
+#form{
+    background-color: black;
+    height:550px;
+    width: 660px;
+    margin:auto;
+    padding:20px;
+    opacity: 0.80;
+    margin-top: 3rem;
+}
+#form h3{
+    border-bottom: 2px solid #3399ff;
+    width:210px;
+    padding: 5px;
+}
+::placeholder{
+    color:#fff;
+}
+#input #input-group{
+    width:300px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    /* background: transparent; */
+    color:black;
+}
+#input #input-group::placeholder{
+    color: black;
+}
+
+#input2 #input-group{
+    width:195px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:#fff;
+}
+#input3 #input-group{
+    margin-left: 50px;
+}
+#input4 #input-group{
+    width:300px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:#fff
+}
+#input4 #input-group1{
+    width:615px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:#fff
+}
+#input5 h3{
+    border-bottom: 2px solid #3399ff;
+    width:220px;
+    padding: 5px;
+}
+#input6 #input-group{
+    width:300px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:#fff
+}
+#input6 #input-group1{
+    width:615px;
+    margin:5px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    color:#fff
+}
+#input #input-groupa{
+    width: 300px;
+    margin:5px;
+}
+#input #input-groupb{
+    width: 300px;
+    margin:5px;
+}

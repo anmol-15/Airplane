@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <div style="position: absolute; top: 13px; right:280px;">
+    <a class="btn btn-black" style="cursor: pointer;" href="home"> <i class="fa fa-sign-out" aria-hidden="true"></i>
+      Log Out </a>
+  </div>
+
+
+
+
+  <!-- <div class="container" id="adminbox">
+    <ul>
+      <li><a class="btn">Add New Flight</a></li>
+      <li><a class="btn">Update Flight</a></li>
+      <li><a class="btn">All Flights</a></li>
+      <li><a class="btn">Delete Flight</a></li>
+    </ul>
+  </div> -->
+
+
+
+
+
+  <div id="adminbox" class="d-flex flex-column flex-shrink-0 p-3" style="width: 270px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+      <svg class="bi pe-none me-2" width="10" height="30">
+        <use xlink:href="#bootstrap" />
+      </svg>
+      <span class="fs-4 text-danger"><i class="fa fa-address-book-o" aria-hidden="true"></i> Welcome Admin </span>
+    </a>
+    <hr>
+    <span class="fs-2 text-danger">Flights</span>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a id="addnewf" (click)="onclick()" class="nav-link" aria-current="page">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#addflight" />
+          </svg>
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New Flight
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick2()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#updateflight" />
+          </svg>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update Flight Details
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick3()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#allflights" />
+          </svg>
+          <i class="fa fa-list-alt" aria-hidden="true"></i> All Flights
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick4()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#deleteflight" />
+          </svg>
+          <i class="fa fa-trash-o" aria-hidden="true"></i> Delete Flights
+        </a>
+      </li>
+      <hr>
+      <span class="fs-2 text-danger">Pilots</span>
+    </ul>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a class="nav-link" (click)="onclick5()" aria-current="page">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#addpilot" />
+          </svg>
+          <i class="fa fa-plus" aria-hidden="true"></i> Add New Pilot
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick6()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#updatepilot" />
+          </svg>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Update Pilot Details
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick7()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#allpilots" />
+          </svg>
+          <i class="fa fa-list-alt" aria-hidden="true"></i> All Pilots
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" (click)="onclick8()">
+          <svg class="bi pe-none me-3" width="16" height="16">
+            <use xlink:href="#deletepilot" />
+          </svg>
+          <i class="fa fa-trash-o" aria-hidden="true"></i> Delete Pilot
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <br>
+    <br>
+    <hr>
+  </div>
+
+
+  <!-- add new flight -->
+  <ng-container *ngIf="visible">
+    <div id="newflight"
+      style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+
+      <div class="card mx-auto" style="background-color: rgba(255, 255, 255, 0.647);">
+        <div class="card-body">
+          <div class="container">
+            <h1 style="text-align:center;"> Add a Flight </h1>
+            <form>
+              <div class="form-group row">
+                <label for="inputEmail3" class="fw-bold col-sm-2 col-form-label"> Flight ID Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Flight Name </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Number of Seats </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Manufacture Place </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Usage (In Years) </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Additional Details </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class=" form-group" style="display:flex; justify-content:right;">
+                <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Submit</button>
+                <button type="reset" class=" btn btn-dark">Clear Form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+
+
+
+  <!-- update flight detail -->
+  <ng-container *ngIf="visible2">
+    <div id="newflight"
+      style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+
+      <div class="card mx-auto" style="background-color: rgba(255, 255, 255, 0.647);">
+        <div class="card-body">
+          <div class="container">
+            <h1 style="text-align:center;"> Update Flight Details </h1>
+            <form>
+              <div class="form-group row">
+                <label for="inputEmail3" class="fw-bold col-sm-2 col-form-label"> Flight ID Number</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputEmail3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Flight Name </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Number of Seats </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Manufacture Place </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Usage (In Years) </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Additional Details </label>
+                <div class="col-sm-10">
+                  <input type="type" class="form-control" id="inputPassword3">
+                </div>
+              </div>
+
+              <div class=" form-group" style="display:flex; justify-content:right;">
+                <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Update</button>
+                <button type="reset" class=" btn btn-dark">Clear Form</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+  <!-- all flights -->
+  <ng-container *ngIf="visible3">
+    <div id="newflight"
+      style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+      <table id="tbl" class="table table-bordered table-sm mt-1" style="background-color: rgba(255, 255, 255, 0.754);">
+        <thead>
+          <tr class="container" style="background-color: rgba(0, 0, 0, 0.792); color: white;">
+            <th scope="col"> Flight ID Number </th>
+            <th scope="col"> Flight Name </th>
+            <th scope="col"> Number of Seats </th>
+            <th scope="col"> Manufacture Place </th>
+            <th scope="col"> Usage (In Years) </th>
+            <th scope="col"> Additional Details </th>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+          <tr>
+            <td>1234567</td>
+            <td>Air India</td>
+            <td>700</td>
+            <td>Bharat</td>
+            <td>5 Years</td>
+            <td>Mera Bharat Mahan</td>
+          </tr>
+          <tr>
+            <td>7654321</td>
+            <td>Kenya Airways</td>
+            <td>750</td>
+            <td>Kenya</td>
+            <td>3 Years</td>
+            <td>Hakuna Matata</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </ng-container>
+
+
+
+
+  <!-- delete flight -->
+  <ng-container *ngIf="visible4">
+    <form>
+    <div id="newflight"
+      style="width:80%; height: 70%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+      <div style="width: 60%; height: 50%; display:flex; flex-direction: column; justify-content: space-around; background-color: rgba(255, 255, 255, 0.647); margin:auto; margin-top: 5rem;"> 
+        <h1 class="card-title" style="text-align: center;">Delete an Employee</h1> 
+        <div style="display: flex; justify-content: space-around;">
+          <h3>Flight ID Number</h3>
+          <input type="text">
+        </div>
+        <div class="mt-3 form-group" style="display:flex; justify-content:right;">
+          <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Delete</button>
+          <button type="reset" class=" btn btn-dark" style="margin-right: 10px;">Clear Form</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- add new pilot -->
+    <ng-container *ngIf="visible5">
+      <div id="newpilot"
+        style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+  
+        <div class="card mx-auto" style="background-color: rgba(255, 255, 255, 0.647);">
+          <div class="card-body">
+            <div class="container">
+              <h1 style="text-align:center;"> Add a Pilot </h1>
+              <form>
+                <div class="form-group row">
+                  <label for="inputEmail3" class="fw-bold col-sm-2 col-form-label"> Pilot ID Number</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Pilot Name </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Pilot Passport No. </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Email Address </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Age </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Years of Experience </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class=" form-group" style="display:flex; justify-content:right;">
+                  <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Submit</button>
+                  <button type="reset" class=" btn btn-dark">Clear Form</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  
+  
+  
+  
+  
+  
+    <!-- update flight detail -->
+    <ng-container *ngIf="visible6">
+      <div id="newpilot"
+        style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+  
+        <div class="card mx-auto" style="background-color: rgba(255, 255, 255, 0.647);">
+          <div class="card-body">
+            <div class="container">
+              <h1 style="text-align:center;"> Update Pilot Details </h1>
+              <form>
+                <div class="form-group row">
+                  <label for="inputEmail3" class="fw-bold col-sm-2 col-form-label"> Pilot ID Number</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputEmail3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Pilot Name </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Pilot Passport No. </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Email Address </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Age </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="inputPassword3" class="fw-bold col-sm-2 col-form-label"> Years of Experience </label>
+                  <div class="col-sm-10">
+                    <input type="type" class="form-control" id="inputPassword3">
+                  </div>
+                </div>
+  
+                <div class=" form-group" style="display:flex; justify-content:right;">
+                  <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Update</button>
+                  <button type="reset" class=" btn btn-dark">Clear Form</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  
+  
+  
+    <!-- all flights -->
+    <ng-container *ngIf="visible7">
+      <div id="newflight"
+        style="width:80.2%; height: 90.5%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+        <table id="tbl" class="table table-bordered table-sm mt-1" style="background-color: rgba(255, 255, 255, 0.754);">
+          <thead>
+            <tr class="container" style="background-color: rgba(0, 0, 0, 0.792); color: white;">
+              <th scope="col"> Pilot ID Number </th>
+              <th scope="col"> Pilot Name </th>
+              <th scope="col"> Pilot Passport No. </th>
+              <th scope="col"> Email Address </th>
+              <th scope="col"> Age </th>
+              <th scope="col"> Years of Experience </th>
+            </tr>
+            <tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr>
+            <tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr><tr>
+              <td>777</td>
+              <td>Anmol Solanki</td>
+              <td>153003</td>
+              <td>anmol@gmail.com</td>
+              <td>23 Years</td>
+              <td>3 years</td>
+            </tr>
+            <tr>
+              <td>888</td>
+              <td>Nirmal Solanki</td>
+              <td>182010</td>
+              <td>nirmal@gmail.com</td>
+              <td>20 Years</td>
+              <td>1 year</td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </ng-container>
+  
+  
+  
+  
+    <!-- delete pilot -->
+    <ng-container *ngIf="visible8">
+      <form style="background-color:rgba(255, 255, 255, 0.754);">
+      <div id="newflight" 
+        style="width:80%; height: 70%; margin-left: 6rem; position:absolute; top:3.9rem; left:10.9rem;">
+        <div style="width: 60%; height: 50%; display:flex; flex-direction: column; justify-content: space-around; background-color: rgba(255, 255, 255, 0.647); margin:auto; margin-top: 5rem;"> 
+          <h1 class="card-title" style="text-align: center;">Delete a Pilot</h1> 
+          <div style="display: flex; justify-content: space-around;">
+            <h3>Pilot ID Number</h3>
+            <input type="text">
+          </div>
+          <div class="mt-3 form-group" style="display:flex; justify-content:right;">
+            <button type="submit" class=" btn btn-dark" style="margin-right: 10px;">Delete</button>
+            <button type="reset" class=" btn btn-dark" style="margin-right: 10px;">Clear Form</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    </ng-container>
+  
+</body>
+
+</html>

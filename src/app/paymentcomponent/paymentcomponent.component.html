@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="box">
+    <form autocomplete="off" action="ticket">
+      <h2>Payment </h2>
+      <div class="inputBox">
+        <input id="cc-number" name="cc-number" autocomplete="cc-number"  pattern="[\d ]{}" required>
+        <span>Card number</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input id="cc-name" name="cc-name" autocomplete="cc-name" pattern="[\p{L} \-\.]+" required>
+        <span>Name on card</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input id="cc-exp" name="cc-exp" autocomplete="cc-exp" placeholder="" maxlength="5" required>
+        <span>Expiry date (MM/YY)</span>
+        <i></i>
+      </div>
+      <div class="inputBox">
+        <input id="cc-csc" name="cc-csc" autocomplete="cc-csc" inputmode="numeric" maxlength="3" required>
+        <span>Cvv</span>
+        <i></i>
+      </div>
+
+      <input id="sbutton" type="submit" style="cursor: pointer;" value="Confirm Booking">
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+h1{
+    color: black;
+    text-align: center;
+}
+tr:hover{
+    background-color: rgba(128, 128, 128, 0.678);
+  }
